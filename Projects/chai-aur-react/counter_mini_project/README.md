@@ -12,6 +12,7 @@ In React, hooks can only be called inside the body of a function component. This
 ```javascript
 // This is a valid use of useState inside a function component
 const [counter, setCounter] = useState(0)
+```
 
 ### useState
 
