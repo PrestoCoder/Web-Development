@@ -1,5 +1,4 @@
 
-```markdown
 # React App with Comments
 
 This is a sample React application with comments explaining various aspects of the code.
@@ -13,7 +12,6 @@ In React, hooks can only be called inside the body of a function component. This
 ```javascript
 // This is a valid use of useState inside a function component
 const [counter, setCounter] = useState(0)
-```
 
 ### useState
 
