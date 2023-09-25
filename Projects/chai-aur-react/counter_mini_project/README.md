@@ -76,6 +76,48 @@ This approach is especially useful when you need to perform complex operations o
 
 In summary, React's batched state update behavior, combined with callback functions, allows for efficient and optimized state management, reducing unnecessary re-renders and ensuring consistent state handling in complex scenarios.
 
+## React State Update Behavior
+
+In React, when you use the `setState` function (such as `setCounter` in this case) multiple times in a row, React's underlying Fiber algorithm batches these state updates together. This behavior is crucial for optimizing performance, as it reduces the number of re-renders and updates to the DOM.
+
+### Batched State Updates
+
+Here's how the batched state update process works:
+
+1. When you call `setCounter` multiple times in a row:
+
+   ```javascript
+   setCounter(newValue1);
+   setCounter(newValue2);
+   setCounter(newValue3);
+   ```
+
+2. React groups these state updates together into a single batch. It doesn't immediately apply each update one by one.
+
+3. Instead, React calculates the final state result based on all the updates in the batch. This means that the new state is derived from the initial state plus all the updates within the batch.
+
+4. React then triggers a re-render of the component using the calculated final state value.
+
+### Using a Callback Function
+
+To work with the batched state update behavior and ensure that you have access to the most up-to-date state value, you can use a callback function when calling `setCounter`. The callback function receives the current state value as an argument and returns the new state value.
+
+Here's how you can use a callback function to update the state:
+
+```javascript
+setCounter((prevCounter) => {
+  // Perform complex operations on the state
+  const newCounter = prevCounter + 1;
+  return newCounter;
+});
+```
+
+By using a callback function, you ensure that each state update is based on the latest state value, and React handles the batching of updates correctly.
+
+This approach is especially useful when you need to perform complex operations on the state before updating it, as it guarantees that your logic operates on the most recent state.
+
+In summary, React's batched state update behavior, combined with callback functions, allows for efficient and optimized state management, reducing unnecessary re-renders and ensuring consistent state handling in complex scenarios.
+
 ## Note
 
 - We can't write an `addEventListener` to the `upButton` element because JavaScript will try to search for it before rendering occurs, leading to an error.
