@@ -135,7 +135,7 @@ To use this React app, follow these steps:
 1. Clone the repository to your local machine:
 
 ```shell
-git clone https://github.com/your-username/react-app.git
+git clone [https://github.com/your-username/react-app.git](https://github.com/PrestoCoder/Web-Development/edit/main/Projects/chai-aur-react/counter_mini_projec)
 ```
 
 2. Navigate to the project directory:
@@ -163,4 +163,3 @@ Feel free to modify and experiment with the code as needed for your own projects
 Enjoy coding with some chai!
 ```
 
-Please replace `"your-username/react-app.git"` in the cloning step with the actual URL of your GitHub repository where you plan to host this React app.
