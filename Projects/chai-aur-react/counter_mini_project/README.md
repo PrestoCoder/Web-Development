@@ -161,5 +161,4 @@ This will start the React development server, and you can access the app in your
 Feel free to modify and experiment with the code as needed for your own projects.
 
 Enjoy coding with some chai!
-```
 
