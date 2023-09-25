@@ -27,6 +27,24 @@ function App() {
       setMssg("Chai aur code")
     }
     setCounter(counter + 1)
+    // Note:- If we write setCounter multiple times, due to the fiber algorithm,
+    // Updations happen in batches, so, it will combine all setCounter calls into one.(behavior)
+    // To avoid that, we can pass a call back function, which takes as argument the current value of counter.
+    // Now, the counter would be updated using the counter function.
+    // And fibre works in a way, that it'll update using subsequent setCounter only after the previous one is finished executing.
+    // And what it returns is the new value of counter.
+    // The need for such a callback function is intuitive, as we might want to do some complex operation on the state, 
+    // And not just counter + 1.
+
+    /* 
+    Instead of this:-
+    setCounter(counter + 1)
+    setCounter(counter + 1)
+
+    Use:-
+    setCounter(counter => counter + 1)
+    setCounter(counter => counter + 1)
+    */
   }
 
   function decreaseCounter() {
