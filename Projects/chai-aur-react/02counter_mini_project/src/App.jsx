@@ -10,6 +10,9 @@ import './App.css'
 // Invalid hook call. Hooks can only be called inside of the body of a function component. 
 // Which is also why the functions using/manipulating variable created from hook should be declared inside the function component.
 // This is to be able to access the hook as outside the scope of App component, hook won't be accessible.
+// Example:- hook declared inside function A. 
+// Now we create a function D that decreases the hooked variable. 
+// So, the function D must also be in function A.
 // const [counter, setCounter] = useState(0)
 
 function App() {
