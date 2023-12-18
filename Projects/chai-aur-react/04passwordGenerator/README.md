@@ -47,23 +47,17 @@ Thus, it will run when it gets rendered for the first time.
 If the hook depends on no states/props, it will be called only after the first render.
 If it depends on some state inside the component A, or some prop being passed to component A, which in the parent function
 is a state, causing re-render of the child component A, useEffect inside A will be called again.
-
 If useEffect has no dependencies, it will be executed after every re-render of the component.
 If its dep. array is empty, it'll be executed only after the first re-render.
 
-- **useCallback:** Demonstrated as a potential optimization for functions passed to child components to prevent unnecessary re-renders.
-useCallback hook - recreate the function object only if the dependency array changes. Not related to the output of the function itself.
-  It is less useful in normal circumstances, but in case we are returning a child component which uses a function from the parent component,
-  If that function is useCallback, then childComponent won't get re-rendered even if parent component is re-rendered, because,
-  when the parent component is re-rendered, the function gets declared again(w/o useCallback), and the pointer to the function changes
-  To child component, it might seem that the function changed, so it would re-render, which is unnecessary.
+- **useCallback:** Demonstrated as a potential optimization for functions passed to child components to prevent unnecessary re-renders. useCallback hook - recreate the function object only if the dependency array changes. Not related to the output of the function itself. It is less useful in normal circumstances, but in case we are returning a child component which uses a function from the parent component, if that function is useCallback, then childComponent won't get re-rendered even if parent component is re-rendered, because, when the parent component is re-rendered, the function gets declared again(w/o useCallback), and the pointer to the function changes to child component, it might seem that the function changed, so it would re-render, which is unnecessary.
 
 - **useMemo:** Discussed but not extensively used, as it may not provide significant benefits in this context.
-  In our case, it looks like, useMemo could be more useful, but as we'll see, it really isn't.
-  What useMemo does is, if a function is wrapped in it, useMemo runs that function only of the dep. array changes.
-  It doesn't mean that useMemo will remember all previous values for that function.
-  say if dep array is [2], and it changes to [3], the fun is recomputed.
-  If now it changes back to [2], the fun will be recomputed, as useMemo didn't store fun's value for [2].
+In our case, it looks like, useMemo could be more useful, but as we'll see, it really isn't.
+What useMemo does is, if a function is wrapped in it, useMemo runs that function only of the dep. array changes.
+It doesn't mean that useMemo will remember all previous values for that function.
+say if dep array is [2], and it changes to [3], the fun is recomputed.
+If now it changes back to [2], the fun will be recomputed, as useMemo didn't store fun's value for [2].
 
 - **useRef:** This hook basically helps in storing a value across renders.
 The value could be anything, that of a state, a variable, anything.
@@ -71,7 +65,6 @@ If we create a local variable, it will be re-initialized at the re-render.
 But the useRef one is not.
 useRef value can only be changed by accessing .current (currentValue) = something else.
 Thus, useRef doesn't change across any renders or updates, and neither causes anything.
-
 Also, the useRef object never changes, its current value only changes.
 The syntax where useRef current value points to a DOM element is interpreted by JSX => its syntax.
 eg:- The null is assigned to inputRef.current
