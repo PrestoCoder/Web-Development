@@ -2,14 +2,12 @@ import { useState, useEffect, useMemo, useCallback} from 'react'
 import './App.css'
 
 /* useEffect -------------------------------------
-The useEffect hook, declared inside a functional component A, will be called when that functional component get (re-)rendered.
-Thus, it will run when it gets rendered for the first time.
-If the hook depends on no states/props, it will be called only after the first render.
+The useEffect hook, declared inside a functional component A, will be called when that functional component gets (re-)rendered.
 If it depends on some state inside the component A, or some prop being passed to component A, which in the parent function
 is a state, causing re-render of the child component A, useEffect inside A will be called again.
 
 If useEffect has no dependencies, it will be executed after every re-render of the component.
-If its dep. array is empty, it'll be executed only after the first re-render.
+If its dep. array is empty, it'll be executed only after the first render.
 
 */
 
